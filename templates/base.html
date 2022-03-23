@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> {{ title }} </title>
+
+        <style>
+            .text_spaceship {
+                background-image: ../static/img/spaceship_it.png;
+                background-repeat: no-repeat;
+                text-align: center;
+            }
+
+            .image_spaceship {
+                text-align: center
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Миссия Колонизация Марса</h1>
+        <h4>И на Марсе будут яблони цвести!</h4>
+
+        {% if text == "Инженерные тренажеры" %}
+            <h1 class="text_spaceship"> {{ text }} </h1>
+            <div class="image_spaceship">
+                <img src="../static/img/spaceship_it.jpg" alt="Упс, картинка не найдена...">
+            </div>
+        {% else %}
+
+            {% if text == "Научные симуляторы" %}
+            <h1 class="text_spaceship"> {{ text }} </h1>
+                <div class="image_spaceship">
+                    <img src="../static/img/spaceship_nc.jpg" alt="Упс, картинка не найдена...">
+                </div>
+            {% else %}
+                {% set profs = ["Инженер-исследователь",
+                                "Пилот",
+                                 "Строитель",
+                                 "Инженер по терраформированию",
+                                 "Пилот дронов",
+                                 "Штурман",
+                                 "Киберинженер",
+                                 "Специалист по радиационной защите",
+                                 "Экзобиолог",
+                                 "Врач",
+                                 "Астрогеолог",
+                                 "Климатолог"] %}
+
+                <h1> {{ text }} </h1>
+                <h1>Cписок доступных профессий:</h1>
+
+                <ul>
+                    {% for i in profs %}
+                        <li> {{ i }} </li>
+                    {% endfor %}
+                </ul>
+
+            {% endif %}
+        {% endif %}
+    </body>
+</html>
